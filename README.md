@@ -27,7 +27,3 @@ Having the exact same file name does not make a file a duplicate.  A file is onl
 ## Usage
 
 DFD.exe \<folder 1\> \<folder 2\>
-
-## Warning
-
-Please do not pass in the same folder path (nor a path for one folder that is a subfolder of the other) for the first and second folders.

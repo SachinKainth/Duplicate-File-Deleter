@@ -68,7 +68,7 @@ namespace DFD.IntegrationTests
             paths[1][1].Should().EndWith("\\Test Documents\\test-file2.txt");
 
             paths[2][0].Should().EndWith("\\Test Documents\\Inner Folder 1\\image1.jpg");
-            paths[2][1].Should().EndWith("\\Test Documents\\Inner Folder 1\\Inner Inner Folder 1_1\\image1.jpg");
+            paths[2][1].Should().EndWith("\\Test Documents\\Inner Folder 1\\Inner Inner Folder 1\\image1.jpg");
             paths[2][2].Should().EndWith("\\Test Documents\\Inner Folder 2\\image1.jpg");
 
             paths[3][0].Should().EndWith("\\Test Documents\\Inner Folder 2\\image2.jpg");

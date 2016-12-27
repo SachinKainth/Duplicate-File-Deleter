@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DirectoryCheckerTests.cs" />
     <Compile Include="DirectoryHasherTests.cs" />
     <Compile Include="FileHasherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,7 +80,7 @@
     <Content Include="Test Documents\Inner Folder 1\image1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Test Documents\Inner Folder 1\Inner Inner Folder 1_1\image1.jpg">
+    <Content Include="Test Documents\Inner Folder 1\Inner Inner Folder 1\image1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Test Documents\Inner Folder 2\image1.jpg">
@@ -94,6 +95,9 @@
     <Content Include="Test Documents\test-file2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test Documents\Inner Folder 2\Inner Inner Folder 1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

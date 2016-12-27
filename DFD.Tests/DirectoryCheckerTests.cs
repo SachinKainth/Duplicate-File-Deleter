@@ -9,11 +9,13 @@ namespace DFD.UnitTests
     class DirectoryCheckerTests
     {
         private Mock<IDirectoryWrapper> _directoryWrapperMock;
+        private IDirectoryChecker _directoryChecker;
 
         [SetUp]
         public void Setup()
         {
             _directoryWrapperMock = new Mock<IDirectoryWrapper>();
+            _directoryChecker = new DirectoryChecker(_directoryWrapperMock.Object);
         }
 
         [Test]
@@ -23,10 +25,8 @@ namespace DFD.UnitTests
         public void Check_ArgsLengthNot2_ThrowsException(int argsLength)
         {
             var args = new string[argsLength];
-
-            var directoryChecker = new DirectoryChecker(_directoryWrapperMock.Object);
-
-            Action action = () => directoryChecker.Check(args);
+            
+            Action action = () => _directoryChecker.Check(args);
             action
                 .ShouldThrow<ArgumentException>()
                 .WithMessage("Usage: DFD.exe <folder 1> <folder 2>");
@@ -64,7 +64,7 @@ namespace DFD.UnitTests
         [TestCase(" ", " ", false, true)]
         [TestCase("path1", " ", false, true)]
         [TestCase(" ", "path2", false, true)]
-        [TestCase("path1", "path2", false, true)] //
+        [TestCase("path1", "path2", false, true)]
 
         [TestCase(null, null, true, false)]
         [TestCase(null, "", true, false)]
@@ -100,14 +100,12 @@ namespace DFD.UnitTests
         [TestCase(" ", "path2", true, true)]
         public void Check_WhenInputInvalid_ThrowException(string path1, string path2, bool exists1, bool exists2)
         {
-            var directoryChecker = new DirectoryChecker(_directoryWrapperMock.Object);
-
             _directoryWrapperMock.Setup(_ => _.Exists(path1)).Returns(exists1);
             _directoryWrapperMock.Setup(_ => _.Exists(path2)).Returns(exists2);
 
             var args = new string[] { path1, path2 };
 
-            Action action = () => directoryChecker.Check(args);
+            Action action = () => _directoryChecker.Check(args);
             action
                 .ShouldThrow<ArgumentException>()
                 .WithMessage("Please enter a valid folder path.");
