@@ -8,11 +8,6 @@ namespace DFD
 
         public DuplicateFileDisplayer(string[] args, IConsoleWrapper consoleWrapper)
         {
-            if (args.Length != 2)
-            {
-                throw new ArgumentException("Usage: DFD.exe <folder 1> <folder 2>");
-            }
-
             _consoleWrapper = consoleWrapper;
         }
 

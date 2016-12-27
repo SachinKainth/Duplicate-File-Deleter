@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ByteArrayComparerTests.cs" />
+    <Compile Include="DirectoryCheckerTests.cs" />
     <Compile Include="DirectoryHasherTests.cs" />
     <Compile Include="DuplicateFileDeleterTests.cs" />
     <Compile Include="DuplicateFileDisplayerTests.cs" />

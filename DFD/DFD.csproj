@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ByteArrayComparer.cs" />
     <Compile Include="ConsoleWrapper.cs" />
+    <Compile Include="DirectoryChecker.cs" />
     <Compile Include="DirectoryHasher.cs" />
     <Compile Include="DirectoryWrapper.cs" />
     <Compile Include="DuplicateFileDeleter.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="FileWrapper.cs" />
     <Compile Include="Hasher.cs" />
     <Compile Include="IConsoleWrapper.cs" />
+    <Compile Include="IDirectoryChecker.cs" />
     <Compile Include="IDirectoryWrapper.cs" />
     <Compile Include="IDuplicateFileDeleter.cs" />
     <Compile Include="IDuplicateFileDisplayer.cs" />

@@ -16,20 +16,7 @@ namespace DFD.UnitTests
         {
             _consoleWrapperMock = new Mock<IConsoleWrapper>();
         }
-
-        [TestCase(0)]
-        [TestCase(1)]
-        [TestCase(3)]
-        public void Ctor_ArgsLengthNot2_ThrowsException(int argsLength)
-        {
-            var args = new string[argsLength];
-
-            Action action = () => new DuplicateFileDisplayer(args, new ConsoleWrapper());
-            action
-                .ShouldThrow<ArgumentException>()
-                .WithMessage("Usage: DFD.exe <folder 1> <folder 2>");
-        }
-
+        
         [Test]
         public void Ctor_ArgsLength2_DoesNotThrowException()
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 namespace DFD
@@ -13,11 +12,6 @@ namespace DFD
         {
             _directoryWrapper = directoryWrapper;
             _path = path;
-
-            if (string.IsNullOrWhiteSpace(path) || !_directoryWrapper.Exists(path))
-            {
-                throw new ArgumentException("Please enter a valid folder path.");
-            }
         }
         
         public Hashes ComputeHashes()

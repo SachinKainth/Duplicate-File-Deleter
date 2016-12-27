@@ -19,24 +19,7 @@ namespace DFD.UnitTests
         {
             _directoryWrapperMock = new Mock<IDirectoryWrapper>();
         }
-
-        [TestCase(null, false)]
-        [TestCase("", false)]
-        [TestCase(" ", false)]
-        [TestCase(null, true)]
-        [TestCase("", true)]
-        [TestCase(" ", true)]
-        [TestCase("path", false)]
-        public void Ctor_WhenInputInvalid_ThrowException(string path, bool exists)
-        {
-            _directoryWrapperMock.Setup(_ => _.Exists(path)).Returns(exists);
-
-            Action action = () => new DirectoryHasher(_directoryWrapperMock.Object, path);
-            action
-                .ShouldThrow<ArgumentException>()
-                .WithMessage("Please enter a valid folder path.");
-        }
-
+        
         [Test]
         public void Ctor_WhenInputValid_DoesntThrowException()
         {
