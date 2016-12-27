@@ -108,7 +108,7 @@ namespace DFD.UnitTests
             Action action = () => _directoryChecker.Check(args);
             action
                 .ShouldThrow<ArgumentException>()
-                .WithMessage("Please enter a valid folder path.");
+                .WithMessage("Please enter valid folder paths.");
         }
     }
 }

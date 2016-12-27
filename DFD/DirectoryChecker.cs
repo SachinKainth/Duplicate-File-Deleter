@@ -39,7 +39,7 @@ namespace DFD
 
             if (path1Null || path1DoesntExist || path2Null || path2DoesntExist)
             {
-                throw new ArgumentException("Please enter a valid folder path.");
+                throw new ArgumentException("Please enter valid folder paths.");
             }
         }
 

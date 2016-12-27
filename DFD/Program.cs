@@ -8,6 +8,8 @@ namespace DFD
         {
             try
             {
+                new DirectoryChecker(new DirectoryWrapper()).Check(args);
+
                 var duplicateFileDisplayer = new DuplicateFileDisplayer(args, new ConsoleWrapper());
                 var duplicateFileDeleter = new DuplicateFileDeleter(new FileWrapper());
 
