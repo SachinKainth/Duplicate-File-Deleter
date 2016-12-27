@@ -22,7 +22,7 @@ Having the exact same file name does not make a file a duplicate.  A file is onl
 
 ## Usage
 
-DFD.exe <folder 1> <folder 2>
+DFD.exe \<folder 1\> \<folder 2\>
 
 ## Warning
 
