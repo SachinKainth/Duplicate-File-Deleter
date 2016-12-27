@@ -2,6 +2,10 @@
 
 This program takes in two folder paths as input and deletes all the duplicate files.
 
+## If you only need the executable file 
+
+The DFD.exe file can be found in /Executable folder.  This is all you need to run the program (at least on Windows).
+
 ## What gets deleted?
 
 All the duplicate files:
