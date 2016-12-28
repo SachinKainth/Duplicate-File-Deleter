@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Moq;
 using NUnit.Framework;
+using Smocks;
 using System;
 
 namespace DFD.UnitTests
@@ -109,6 +110,58 @@ namespace DFD.UnitTests
             action
                 .ShouldThrow<ArgumentException>()
                 .WithMessage("Please enter valid folder paths.");
+        }
+
+        [TestCase(true, true)]
+        [TestCase(true, false)]
+        [TestCase(false, true)]
+        public void Check_WhenIsSubPathOf_ThrowException(bool isSubPath1, bool isSubPath2)
+        {
+            Smock.Run(context =>
+            {
+                var path1 = "some fake path 1";
+                var path2 = "some fake path 2";
+
+                var directoryWrapperMock = new Mock<IDirectoryWrapper>();
+                var directoryChecker = new DirectoryChecker(directoryWrapperMock.Object);
+
+                directoryWrapperMock.Setup(_ => _.Exists(path1)).Returns(true);
+                directoryWrapperMock.Setup(_ => _.Exists(path2)).Returns(true);
+                
+                context.Setup(() => path1.IsSubPathOf(path2)).Returns(isSubPath1);
+                context.Setup(() => path2.IsSubPathOf(path1)).Returns(isSubPath2);
+
+                var args = new string[] { path1, path2 };
+
+                Action action = () => directoryChecker.Check(args);
+                action
+                    .ShouldThrow<ArgumentException>()
+                    .WithMessage("Neither folder can be the same as or a subfolder of the other.");
+            });
+        }
+
+        [Test]
+        public void Check_WhenNotIsSubPathOf_DontThrowException()
+        {
+            Smock.Run(context =>
+            {
+                var path1 = "some fake path 1";
+                var path2 = "some fake path 2";
+
+                var directoryWrapperMock = new Mock<IDirectoryWrapper>();
+                var directoryChecker = new DirectoryChecker(directoryWrapperMock.Object);
+
+                directoryWrapperMock.Setup(_ => _.Exists(path1)).Returns(true);
+                directoryWrapperMock.Setup(_ => _.Exists(path2)).Returns(true);
+
+                context.Setup(() => path1.IsSubPathOf(path2)).Returns(false);
+                context.Setup(() => path2.IsSubPathOf(path1)).Returns(false);
+
+                var args = new string[] { path1, path2 };
+
+                Action action = () => directoryChecker.Check(args);
+                action.ShouldNotThrow<ArgumentException>();
+            });
         }
     }
 }
