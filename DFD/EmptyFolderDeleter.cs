@@ -32,7 +32,10 @@ namespace DFD
                 var files = _directoryWrapper.EnumerateFiles
                     (folder.Key, "*.*", SearchOption.TopDirectoryOnly).ToList();
 
-                if(!files.Any())
+                var folders = _directoryWrapper.EnumerateDirectories
+                    (folder.Key, "*.*", SearchOption.TopDirectoryOnly).ToList();
+
+                if (!files.Any() && !folders.Any())
                 {
                     _consoleWrapper.WriteLine($"Folder deleted: {folder.Key}");
                     _directoryWrapper.Delete(folder.Key);
