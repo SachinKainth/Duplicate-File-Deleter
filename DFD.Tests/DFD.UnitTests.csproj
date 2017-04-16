@@ -102,6 +102,7 @@
     <Compile Include="DirectoryHasherTests.cs" />
     <Compile Include="DuplicateFileDeleterTests.cs" />
     <Compile Include="DuplicateFileDisplayerTests.cs" />
+    <Compile Include="EmptyFileDeleterTests.cs" />
     <Compile Include="FileHasherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

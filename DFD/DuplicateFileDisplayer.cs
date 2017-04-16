@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DFD
+﻿namespace DFD
 {
     public class DuplicateFileDisplayer : IDuplicateFileDisplayer
     {

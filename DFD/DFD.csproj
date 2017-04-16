@@ -51,6 +51,7 @@
     <Compile Include="DirectoryWrapper.cs" />
     <Compile Include="DuplicateFileDeleter.cs" />
     <Compile Include="DuplicateFileDisplayer.cs" />
+    <Compile Include="EmptyFolderDeleter.cs" />
     <Compile Include="FileHasher.cs" />
     <Compile Include="FileHasherFactory.cs" />
     <Compile Include="FileWrapper.cs" />
@@ -60,7 +61,10 @@
     <Compile Include="IDirectoryWrapper.cs" />
     <Compile Include="IDuplicateFileDeleter.cs" />
     <Compile Include="IDuplicateFileDisplayer.cs" />
+    <Compile Include="IEmptyFolderDeleter.cs" />
     <Compile Include="IFileWrapper.cs" />
+    <Compile Include="IPathWrapper.cs" />
+    <Compile Include="PathWrapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />

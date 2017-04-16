@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 
 namespace DFD
 {
@@ -12,6 +13,21 @@ namespace DFD
         public string[] GetFiles(string path, string searchPattern, SearchOption searchOption)
         {
             return Directory.GetFiles(path, searchPattern, searchOption);
+        }
+
+        public void Delete(string path)
+        {
+            Directory.Delete(path);
+        }
+
+        public IEnumerable<string> EnumerateDirectories(string path, string searchPattern, SearchOption searchOption)
+        {
+            return Directory.EnumerateDirectories(path, searchPattern, searchOption);
+        }
+
+        public IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
+        {
+            return Directory.EnumerateFiles(path, searchPattern, searchOption);
         }
     }
 }
